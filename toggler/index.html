@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+       }
+       .toggle
+       {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+       }
+       input[ type="checkbox"]{
+        position: relative;
+        width: 80px;
+        height: 40px;
+        border-radius: 20px;
+        background-color: white;
+        border: 1px solid black;
+        appearance: none;
+       }
+       input[ type="checkbox"]:checked
+       {
+        background-color: black;
+       }
+       input[ type="checkbox"]:checked +.container
+       {
+        background-color: rgb(224, 13, 13);
+       }
+       input[ type="checkbox"]::before
+       {
+        content:"";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 35px;
+        width: 35px;
+        margin-top: 2px;
+        margin-left: 1px;
+        border-radius: 50%;
+        background-color: black;
+        transition: 0.5s;
+       }
+       .background{
+        background-color: white;
+        z-index: -1;
+        height: 100vh;
+        width: 100vw;
+        transition: 0.5s;
+       }
+       input:checked[ type="checkbox"]::before
+       {
+        background-color: white;
+        left:40px;
+        transition: 0.5s;
+        border: 1px solid  black;
+        height: 35px;
+        width: 35px;
+       }
+       input:checked[ type="checkbox"] + .background +.toggle
+       {
+        background-color: black;
+       }  
+       input[type="checkbox"]:checked ~.container{
+         background-color: black;
+       }
+    </style>
+</head>
+
+<body>
+  <div class="container">
+   <div class="background">
+      <div class="toggle">
+          <input type="checkbox">
+       </div>
+     </div> 
+  </div>
+</body>
+</html>
